@@ -1,0 +1,9 @@
+# ===================================
+#  Condition Attribute Definitions
+# ===================================
+
+attributes:
+
+    send_notifications:
+        label: Send Notifications
+        type: checkbox

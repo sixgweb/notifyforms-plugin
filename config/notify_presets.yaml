@@ -1,0 +1,15 @@
+entry_created:
+    name: Form Entry Created - Email Backend Users
+    event: Sixgweb\NotifyForms\NotifyRules\EntryCreatedEvent
+    items:
+        - action: RainLab\Notify\NotifyRules\SendMailTemplateAction
+          mail_template: sixgweb.notifyforms::mail.entry
+          send_to_mode: admin
+          action_text: Send a message to all admins informing of new entry 
+          reply_to_mode: system
+    conditions:
+        - condition: Sixgweb\NotifyForms\NotifyRules\FormAttributeCondition
+          subcondition: send_notifications
+          operator: is
+          value: 1
+          condition_text: Send Notifications <span class="operator">is</span> 1

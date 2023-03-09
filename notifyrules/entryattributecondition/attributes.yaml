@@ -1,0 +1,14 @@
+# ===================================
+#  Condition Attribute Definitions
+# ===================================
+
+attributes:
+
+    form:
+        label: Form
+        type: relation
+        relation:
+            model: Sixgweb\Forms\Models\Form
+            label: Name
+            nameFrom: name
+            keyFrom: id
