@@ -15,7 +15,7 @@ class FormAttributeCondition extends ModelAttributesConditionBase
 
     public function getTitle()
     {
-        return 'Form Attribute';
+        return 'sixgweb.notifyforms::lang.notifyrules.form_attribute.title';
     }
 
     /**

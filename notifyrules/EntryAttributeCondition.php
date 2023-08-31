@@ -16,7 +16,7 @@ class EntryAttributeCondition extends ModelAttributesConditionBase
 
     public function getTitle()
     {
-        return 'Entry Attribute';
+        return 'sixgweb.notifyforms::lang.notifyrules.entry_attribute.title';
     }
 
     /**
@@ -41,8 +41,6 @@ class EntryAttributeCondition extends ModelAttributesConditionBase
         parent::listModelAttributeInfo();
 
         if ($this->modelAttributes) {
-            var_dump($this->modelAttributes);
-            exit;
             return $this->modelAttributes;
         }
     }

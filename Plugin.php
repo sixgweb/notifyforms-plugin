@@ -28,9 +28,9 @@ class Plugin extends PluginBase
     {
         return [
             'name'        => 'NotifyForms',
-            'description' => 'Send entry notifications via RainLab.Notify',
+            'description' => 'sixgweb.notifyforms::lang.plugin.description',
             'author'      => 'Sixgweb',
-            'icon'        => 'icon-leaf'
+            'icon'        => 'icon-paper-plane'
         ];
     }
 
@@ -55,7 +55,7 @@ class Plugin extends PluginBase
         return [
             'groups' => [
                 'forms' => [
-                    'label' => 'Forms',
+                    'label' => 'sixgweb.notifyforms::lang.notifyrules.group.forms',
                     'icon' => 'icon-check'
                 ],
             ],
@@ -86,7 +86,7 @@ class Plugin extends PluginBase
     protected function bindNotificationEvents()
     {
         Notifier::bindEvents([
-            'sixgweb.forms.afterEntry' => \Sixgweb\NotifyForms\NotifyRules\EntryCreatedEvent::class,
+            'sixgweb.forms.entry.afterSave' => \Sixgweb\NotifyForms\NotifyRules\EntryCreatedEvent::class,
         ]);
     }
 
@@ -117,16 +117,18 @@ class Plugin extends PluginBase
             $icons = $settings->config['form']['secondaryTabs']['icons'];
 
             $fields['send_notifications'] = [
-                'type' => 'checkbox',
-                'tab' => 'Notification Settings',
-                'label' => 'Send Notifications',
+                'type' => 'switch',
+                'tab' => 'sixgweb.notifyforms::lang.tabs.notifying',
+                'label' => 'sixgweb.notifyforms::lang.send_notifications',
+                'comment' => 'sixgweb.notifyforms::lang.send_notifications_description',
             ];
 
             $fields['sender_email_field'] = [
                 'type' => 'dropdown',
-                'tab' => 'Notification Settings',
-                'label' => 'Sender Email Field',
-                'emptyOption' => '-- select field --',
+                'tab' => 'sixgweb.notifyforms::lang.tabs.notifying',
+                'label' => 'sixgweb.notifyforms::lang.sender_email_field',
+                'comment' => 'sixgweb.notifyforms::lang.sender_email_field_description',
+                'emptyOption' => 'sixgweb.notifyforms::lang.select_field',
                 'trigger' => [
                     'field' => 'send_notifications',
                     'condition' => 'checked',
@@ -136,9 +138,10 @@ class Plugin extends PluginBase
 
             $fields['sender_name_field'] = [
                 'type' => 'dropdown',
-                'tab' => 'Notification Settings',
-                'label' => 'Sender Name Field',
-                'emptyOption' => '-- select field --',
+                'tab' => 'sixgweb.notifyforms::lang.tabs.notifying',
+                'label' => 'sixgweb.notifyforms::lang.sender_name_field',
+                'comment' => 'sixgweb.notifyforms::lang.sender_name_field_description',
+                'emptyOption' => 'sixgweb.notifyforms::lang.select_field',
                 'trigger' => [
                     'field' => 'send_notifications',
                     'condition' => 'checked',
@@ -146,7 +149,7 @@ class Plugin extends PluginBase
                 ]
             ];
 
-            $icons['Notification Settings'] = 'bi bi-bell';
+            $icons['sixgweb.notifyforms::lang.tabs.notifying'] = 'bi bi-bell';
 
             $settings->config['form']['secondaryTabs']['fields'] = $fields;
             $settings->config['form']['secondaryTabs']['icons'] = $icons;

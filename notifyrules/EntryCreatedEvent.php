@@ -22,8 +22,8 @@ class EntryCreatedEvent extends EventBase
     public function eventDetails()
     {
         return [
-            'name'        => 'Created',
-            'description' => 'A new form entry has been created',
+            'name'        => 'sixgweb.notifyforms::lang.notifyrules.entry_created.name',
+            'description' => 'sixgweb.notifyforms::lang.notifyrules.entry_created.description',
             'group'       => 'forms'
         ];
     }
@@ -35,12 +35,12 @@ class EntryCreatedEvent extends EventBase
     {
         return [
             'entry' => [
-                'title' => 'Entry Object',
-                'label' => 'The form entry object',
+                'title' => 'sixgweb.notifyforms::lang.notifyrules.entry_created.params.entry.title',
+                'label' => 'sixgweb.notifyforms::lang.notifyrules.entry_created.params.entry.label',
             ],
             'url' => [
-                'title' => 'URL',
-                'label' => 'The url to edit the entry',
+                'title' => 'sixgweb.notifyforms::lang.notifyrules.entry_created.params.url.title',
+                'label' => 'sixgweb.notifyforms::lang.notifyrules.entry_created.params.url.label',
             ],
         ];
     }
