@@ -49,8 +49,8 @@ class EntryCreatedEvent extends EventBase
     {
         $entry = array_get($args, 0);
         $sender = new \stdClass;
-        $sender->email = $entry->field_values[$entry->form->sender_email_field] ?? null;
-        $sender->name = $entry->field_values[$entry->form->sender_name_field] ?? null;
+        $sender->email = $entry->field_values[$entry->form->settings['sender_email_field']] ?? null;
+        $sender->name = $entry->field_values[$entry->form->settings['sender_name_field']] ?? null;
 
         return [
             'entry' => $entry,
